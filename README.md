@@ -32,7 +32,24 @@ Summary CSV files are produced each time the analysis runs in the [`data/out`](h
 - [trends by IT subcategory](https://github.com/goc-spending/contracts-data/tree/main/data/out/it_subcategories)
 - [trends by vendor](https://github.com/goc-spending/contracts-data/tree/main/data/out/vendors)
 
-A number of other analysis outputs are included in the overall trends folders, produced by [`research_findings.R`](https://github.com/goc-spending/contracts-data/blob/main/lib/research_findings.R) which is run automatically by `load.R`. 
+A number of other analysis outputs are included in the overall trends folders, produced by [`research_findings.R`](https://github.com/goc-spending/contracts-data/blob/main/lib/research_findings.R) which is run automatically by `load.R`.
+
+## Python scripts for quick benchmarking
+
+The `scripts` directory contains a minimal Python utility
+[`fetch_and_summarize.py`](scripts/fetch_and_summarize.py) that queries the
+Open Government CKAN API for contracts matching a keyword. It prints a short
+summary (average contract value and top vendors) and can optionally export the
+raw results to a CSV file. Install the dependencies listed in
+[`scripts/requirements.txt`](scripts/requirements.txt) and run the script like
+so:
+
+```bash
+python scripts/fetch_and_summarize.py "interpretation" --max-records 200 --output results.csv
+```
+
+Provincial data sources such as SEAO can be integrated in a similar way in the
+future.
 
 Charts for specific presentations and other artefacts are produced by [`additional_research_findings.R`](https://github.com/goc-spending/contracts-data/blob/main/analysis/research/additional_research_findings.R) and [`presentation_findings.R`](https://github.com/goc-spending/contracts-data/blob/main/analysis/research/presentation_findings.R), which need to be run separately after contract data has already loaded in the environment.
 
