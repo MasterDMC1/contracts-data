@@ -24,7 +24,17 @@ writes them to `results.csv`. A brief summary is printed to the console.
 Because the CKAN API contains hundreds of thousands of rows, consider adjusting
 `--max-records` depending on your bandwidth and required accuracy.
 
+## Running the Streamlit app
+
+After installing the requirements you can launch a tiny dashboard with:
+
+```bash
+streamlit run app.py
+```
+
+This provides a form to enter a keyword and displays the results in your
+browser.
+
 ## Limitations
-- Provincial data sources are not yet included; scraping those sites will
-  require additional code.
+- Provincial data sources are not yet included; scraping those sites will require additional code.
 - Network access is required to reach `open.canada.ca`.
